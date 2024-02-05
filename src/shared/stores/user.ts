@@ -47,13 +47,13 @@ export const useUserStore = defineStore('user', () => {
   }
 
   const getUser = async () => {
+    if (!localStorage.getItem('accessToken')) return null
     const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/user`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
       }
     })
 
-    console.log(response.data.user)
     if (response.status == 200) localStorage.setItem('user', JSON.stringify(response.data.user))
     return JSON.parse(user.value as string)
   }

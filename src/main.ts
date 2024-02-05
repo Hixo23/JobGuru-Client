@@ -5,7 +5,7 @@ import { createPinia } from 'pinia'
 import { VueQueryPlugin } from '@tanstack/vue-query'
 
 import App from './App.vue'
-import router from './router'
+import router from '@/shared/router'
 
 const app = createApp(App)
 

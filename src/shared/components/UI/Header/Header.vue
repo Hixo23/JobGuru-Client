@@ -2,7 +2,14 @@
 <script lang="ts" setup>
 import { useRoute } from 'vue-router'
 import { useQuery } from '@tanstack/vue-query'
-import { useUserStore } from '@/stores/user'
+import { useUserStore } from '@/shared/stores/user'
+import Loading from '@/shared/components/UI/Loading/Loading.vue'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from '../dropdown-menu'
 
 const route = useRoute()
 
@@ -12,11 +19,10 @@ const { data, isLoading } = useQuery({
   queryFn: getUser,
   queryKey: ['user']
 })
-
-console.log(data.value)
 </script>
 
 <template>
+  <Loading v-if="isLoading" />
   <header
     class="flex h-20 w-screen items-center justify-around border-b-2 border-b-light_primary/10 p-4 dark:border-b-dark_primary/10"
   >
@@ -25,7 +31,14 @@ console.log(data.value)
     </h1>
     <a class="text-3xl font-bold text-light_text dark:text-dark_text" v-else href="/">JobGuru</a>
 
-    <p v-if="!isLoading">{{ data.username }}</p>
+    <DropdownMenu v-if="data && !isLoading">
+      <DropdownMenuTrigger>{{ data.username }}</DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <!-- <p>{{ JSON.stringify(data) }}</p> -->
+        <DropdownMenuItem>My offers</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+
     <router-link
       v-if="!data"
       to="/login"

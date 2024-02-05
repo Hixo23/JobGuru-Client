@@ -1,5 +1,6 @@
-import LoginPageVue from '@/features/Auth/views/LoginPage.vue'
-import HomeViewVue from '@/features/JobList/views/HomeView.vue'
+import LoginPageVue from '@/features/Auth/pages/LoginPage.vue'
+import RegisterPageVue from '@/features/Auth/pages/RegisterPage.vue'
+import HomeViewVue from '@/features/JobList/pages/HomePage.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -12,6 +13,10 @@ const router = createRouter({
     {
       path: '/login',
       component: LoginPageVue
+    },
+    {
+      path: '/register',
+      component: RegisterPageVue
     }
   ]
 })

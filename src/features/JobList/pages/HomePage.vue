@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import JobListItem from '@/features/JobList/components/JobListItem/JobListItem.vue'
-import Header from '@/shared/components/Header/Header.vue'
+import Header from '@/shared/components/UI/Header/Header.vue'
 </script>
 
 <template>
