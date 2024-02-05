@@ -1,8 +1,5 @@
-<script setup lang="ts">
-import Header from './shared/components/Header/Header.vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <Header />
   <RouterView />
 </template>

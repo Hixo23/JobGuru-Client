@@ -1,9 +1,11 @@
 <script lang="ts" setup>
-import JobListItem from '../components/JobDetails/JobListItem.vue'
+import JobListItem from '@/features/JobList/components/JobListItem/JobListItem.vue'
+import Header from '@/shared/components/Header/Header.vue'
 </script>
 
 <template>
-  <main class="w-full h-[90svh] flex justify-center items-center">
+  <Header />
+  <main class="flex h-[90svh] w-full items-center justify-center">
     <JobListItem
       title="elozelo"
       description="fajnie"

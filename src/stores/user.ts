@@ -1,15 +1,28 @@
 import axios, { isAxiosError } from 'axios'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 export const useUserStore = defineStore('user', () => {
   const user = ref(localStorage.getItem('user'))
-
-  const signIn = async ({ email, password }: { email: string; password: string }) => {
+  const router = useRouter()
+  const signUp = async ({
+    email,
+    password,
+    username
+  }: {
+    email: string
+    password: string
+    username: string
+  }) => {
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/login_check`)
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/register`, {
+        email,
+        password,
+        username
+      })
 
-      return localStorage.setItem('accessToken', response.data.token)
+      if (response.status == 200) router.push('/login')
     } catch (error) {
       if (isAxiosError(error)) {
         console.log(error.message)
@@ -17,5 +30,33 @@ export const useUserStore = defineStore('user', () => {
     }
   }
 
-  return { user, signIn }
+  const signIn = async ({ email, password }: { email: string; password: string }) => {
+    try {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/login_check`, {
+        email,
+        password
+      })
+
+      if (response.status == 200) localStorage.setItem('accessToken', response.data.token)
+      return router.push('/')
+    } catch (error) {
+      if (isAxiosError(error)) {
+        console.log(error.message)
+      }
+    }
+  }
+
+  const getUser = async () => {
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/user`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+      }
+    })
+
+    console.log(response.data.user)
+    if (response.status == 200) localStorage.setItem('user', JSON.stringify(response.data.user))
+    return JSON.parse(user.value as string)
+  }
+
+  return { user, signIn, signUp, getUser }
 })
