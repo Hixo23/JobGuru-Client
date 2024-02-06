@@ -35,7 +35,7 @@ const { data, isLoading } = useQuery({
       <DropdownMenuTrigger>{{ data.username }}</DropdownMenuTrigger>
       <DropdownMenuContent>
         <!-- <p>{{ JSON.stringify(data) }}</p> -->
-        <DropdownMenuItem>My offers</DropdownMenuItem>
+        <DropdownMenuItem><RouterLink to="/myoffers">My offers</RouterLink></DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
 

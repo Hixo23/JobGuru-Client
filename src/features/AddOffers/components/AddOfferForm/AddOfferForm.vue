@@ -64,7 +64,7 @@ const onSubmit = handleSubmit(async (values) => {
 <template>
   <form @submit.prevent="onSubmit" class="w-1/2 p-8">
     <div
-      class="flex flex-col justify-center gap-4 rounded-xl bg-light_secondary p-8 text-white dark:bg-slate-900"
+      class="flex flex-col justify-center gap-2 rounded-xl bg-light_secondary p-8 text-white dark:bg-slate-900"
     >
       <div class="flex flex-col items-center justify-center">
         <h1 class="text-3xl font-bold">Add new offer</h1>
