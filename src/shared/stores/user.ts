@@ -1,10 +1,9 @@
 import axios, { isAxiosError } from 'axios'
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { toast } from 'vue-sonner'
 
 export const useUserStore = defineStore('user', () => {
-  const user = ref(localStorage.getItem('user'))
   const router = useRouter()
   const signUp = async ({
     email,
@@ -25,7 +24,7 @@ export const useUserStore = defineStore('user', () => {
       if (response.status == 200) router.push('/login')
     } catch (error) {
       if (isAxiosError(error)) {
-        console.log(error.message)
+        toast(error.response?.data.message)
       }
     }
   }
@@ -41,22 +40,27 @@ export const useUserStore = defineStore('user', () => {
       return router.push('/')
     } catch (error) {
       if (isAxiosError(error)) {
-        console.log(error.message)
+        toast(error.response?.data.message)
       }
     }
   }
 
   const getUser = async () => {
     if (!localStorage.getItem('accessToken')) return null
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/user`, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-      }
-    })
+    try {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/user`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+      })
 
-    if (response.status == 200) localStorage.setItem('user', JSON.stringify(response.data.user))
-    return JSON.parse(user.value as string)
+      return response.data.user
+    } catch (error) {
+      if (isAxiosError(error)) {
+        toast(error.response?.data.message)
+      }
+    }
   }
 
-  return { user, signIn, signUp, getUser }
+  return { signIn, signUp, getUser }
 })

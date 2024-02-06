@@ -11,18 +11,22 @@ defineProps<{
 </script>
 
 <template>
-  <div class="flex items-center gap-8 rounded-sm bg-light_primary p-4 dark:bg-dark_primary">
-    <p
-      class="flex h-16 w-16 items-center justify-center rounded-full bg-light_accent text-2xl text-white dark:bg-dark_accent"
-    >
-      {{ company.split('')[0] }}
-    </p>
-    <div class="flex flex-col gap-2">
-      <span class="text-gray-400">{{ company }}</span>
-      <p class="text-2xl font-semibold text-white">{{ title }}</p>
-      <div class="flex gap-4 text-white">
-        <p class="flex items-center gap-2 text-sm"><FaLocationDot /> {{ location }}</p>
-        <p class="flex items-center gap-2 text-sm"><FaRegMoneyBill1 /> {{ salary }}</p>
+  <div
+    class="flex min-w-fit flex-col gap-4 rounded-sm bg-light_primary p-4 lg:flex-row lg:items-center lg:justify-between dark:bg-dark_primary"
+  >
+    <div class="flex items-center gap-4">
+      <p
+        class="flex h-12 w-12 items-center justify-center rounded-full bg-light_accent text-2xl text-white lg:h-16 lg:w-16 dark:bg-dark_accent"
+      >
+        {{ company.split('')[0] }}
+      </p>
+      <div class="flex flex-col gap-2">
+        <span class="text-gray-400">{{ company }}</span>
+        <p class="text-2xl font-semibold text-white">{{ title }}</p>
+        <div class="flex gap-4 text-white">
+          <p class="flex items-center gap-2 text-sm"><FaLocationDot /> {{ location }}</p>
+          <p class="flex items-center gap-2 text-sm"><FaRegMoneyBill1 /> {{ salary }}</p>
+        </div>
       </div>
     </div>
     <router-link

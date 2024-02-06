@@ -1,3 +1,4 @@
+import AddOfferPageVue from '@/features/AddOffers/pages/AddOfferPage.vue'
 import LoginPageVue from '@/features/Auth/pages/LoginPage.vue'
 import RegisterPageVue from '@/features/Auth/pages/RegisterPage.vue'
 import HomeViewVue from '@/features/JobList/pages/HomePage.vue'
@@ -17,6 +18,10 @@ const router = createRouter({
     {
       path: '/register',
       component: RegisterPageVue
+    },
+    {
+      path: '/addoffer',
+      component: AddOfferPageVue
     }
   ]
 })
