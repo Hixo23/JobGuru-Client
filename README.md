@@ -22,9 +22,9 @@ Follow these steps to set up and run the JobGuru app locally:
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/Hixo23/JobGuru-Client.git
-   ```
+```bash
+git clone https://github.com/Hixo23/JobGuru-Client.git
+```
 
 2. Install dependencies:
 
