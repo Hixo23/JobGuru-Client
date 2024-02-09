@@ -72,10 +72,6 @@ const onSubmit = handleSubmit((values) => {
           Login
         </button>
       </form>
-      <p class="text-center text-light_accent dark:text-white">
-        Don't have account?
-        <RouterLink class="underline" to="/register">Register</RouterLink>
-      </p>
     </div>
   </main>
 </template>

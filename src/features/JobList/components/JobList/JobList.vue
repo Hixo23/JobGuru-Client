@@ -6,13 +6,18 @@ import JobListItem from '../JobListItem/JobListItem.vue'
 const { getOffers } = useOffersStore()
 
 const { data: offers, isLoading } = useQuery({ queryFn: getOffers, queryKey: ['offer'] })
-
-console.log(offers)
 </script>
 
 <template>
-  <section v-if="!isLoading" class="flex flex-col gap-4">
-    <p>{{ offers[0].id }}</p>
+  <div class="flex items-center">
+    <p
+      class="text-light_text_text text-4xl font-bold dark:text-white"
+      v-if="!isLoading && offers.length < 1"
+    >
+      Offers not found!
+    </p>
+  </div>
+  <section v-if="!isLoading" class="relative flex flex-col gap-4">
     <JobListItem
       v-for="offer in offers"
       :title="offer.title"
@@ -22,6 +27,9 @@ console.log(offers)
       :key="offer.id"
       :salary="offer.salary"
       :technologies="offer.technologies"
+      :company_website="offer.company_website"
+      :experience="offer.experience"
+      :job_type="offer.job_type"
     />
   </section>
 </template>

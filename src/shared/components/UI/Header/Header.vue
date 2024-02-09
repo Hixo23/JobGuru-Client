@@ -19,12 +19,17 @@ const { data, isLoading } = useQuery({
   queryFn: getUser,
   queryKey: ['user']
 })
+
+const handleLogout = () => {
+  localStorage.removeItem('accessToken')
+  window.location.reload()
+}
 </script>
 
 <template>
   <Loading v-if="isLoading" />
   <header
-    class="flex h-20 w-screen items-center justify-around border-b-2 border-b-light_primary/10 p-4 dark:border-b-dark_primary/10"
+    class="mb-4 flex h-12 w-screen items-center justify-around border-b-2 border-b-light_primary/10 p-6 dark:border-b-dark_primary/10"
   >
     <h1 class="text-3xl font-bold text-light_text dark:text-dark_text" v-if="route.fullPath == '/'">
       JobGuru
@@ -36,6 +41,8 @@ const { data, isLoading } = useQuery({
       <DropdownMenuContent>
         <!-- <p>{{ JSON.stringify(data) }}</p> -->
         <DropdownMenuItem><RouterLink to="/myoffers">My offers</RouterLink></DropdownMenuItem>
+        <DropdownMenuItem><RouterLink to="/addoffer">Add offer</RouterLink></DropdownMenuItem>
+        <DropdownMenuItem @click="handleLogout">Logout</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
 

@@ -5,7 +5,7 @@ import JobListVue from '../components/JobList/JobList.vue'
 
 <template>
   <Header />
-  <main class="flex w-full items-center justify-center">
+  <main class="relative flex w-full items-center justify-center overflow-hidden">
     <JobListVue />
   </main>
 </template>
