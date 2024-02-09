@@ -15,6 +15,9 @@ JobGuru is a simple job board application.
 - **Tailwind CSS:** A utility-first CSS framework for quickly styling the application.
 - **TypeScript:** A typed superset of JavaScript that enhances code quality and development productivity.
 
+## TODO
+- [] Application
+
 ## Getting Started
 
 Follow these steps to set up and run the JobGuru app locally:
