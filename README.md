@@ -16,7 +16,7 @@ JobGuru is a simple job board application.
 - **TypeScript:** A typed superset of JavaScript that enhances code quality and development productivity.
 
 ## TODO
-- [] Application
+- [ ] Application
 
 ## Getting Started
 
