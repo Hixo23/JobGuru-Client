@@ -1,46 +1,42 @@
-# JobGuru-Client
+# JobGuru Frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+JobGuru is a simple job board application.
 
-## Recommended IDE Setup
+## Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- **Job Listings:** View a list of available job opportunities in the IT sector.
+- **Post a Job:** Employers can post new job listings with details about the position, requirements, and application process.
+- **User Authentication:** Securely log in to the platform, allowing users to manage their job listings and applications.
 
-## Type Support for `.vue` Imports in TS
+## Technologies Used
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+- **Vue:** A progressive JavaScript framework for building user interfaces.
+- **Vite:** A fast build tool that enhances Vue development experience.
+- **Tailwind CSS:** A utility-first CSS framework for quickly styling the application.
+- **TypeScript:** A typed superset of JavaScript that enhances code quality and development productivity.
+- **Shadcn-Vue:** An extension or plugin used to enhance certain visual effects in Vue applications.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Getting Started
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+Follow these steps to set up and run the JobGuru app locally:
 
-## Customize configuration
+1. Clone the repository:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+   ```bash
+   git clone https://github.com/Hixo23/JobGuru-Client.git
+   ```
 
-## Project Setup
+2. Install dependencies:
 
-```sh
+```bash
+cd JobGuru-Client
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+3. Start the development server:
 
-```sh
-npm run dev
-```
+````bash
+npm run dev```
 
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+4. Open your browser and navigate to http://localhost:5173 to view the application.
+````
