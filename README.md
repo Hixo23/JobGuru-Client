@@ -14,7 +14,6 @@ JobGuru is a simple job board application.
 - **Vite:** A fast build tool that enhances Vue development experience.
 - **Tailwind CSS:** A utility-first CSS framework for quickly styling the application.
 - **TypeScript:** A typed superset of JavaScript that enhances code quality and development productivity.
-- **Shadcn-Vue:** An extension or plugin used to enhance certain visual effects in Vue applications.
 
 ## Getting Started
 
